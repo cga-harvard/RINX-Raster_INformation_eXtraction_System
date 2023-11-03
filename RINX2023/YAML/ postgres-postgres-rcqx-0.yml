@@ -1,0 +1,1515 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  generateName: postgres-postgres-rcqx-
+  annotations:
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.130.13.1"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: cpu, memory request for container
+      replication-cert-copy; cpu, memory limit for container
+      replication-cert-copy
+    openshift.io/scc: restricted-v2
+    seccomp.security.alpha.kubernetes.io/pod: runtime/default
+    status: >-
+      {"conn_url":"postgres://postgres-postgres-rcqx-0.postgres-pods:5432/postgres","api_url":"https://postgres-postgres-rcqx-0.postgres-pods:8008/patroni","state":"running","role":"master","version":"2.1.4","xlog_location":6449514700280,"timeline":78}
+  resourceVersion: '871064234'
+  name: postgres-postgres-rcqx-0
+  uid: c4c2f8d2-3578-4e3e-9476-5a339f67a421
+  creationTimestamp: '2023-11-03T15:01:14Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-03T15:01:14Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:controller-revision-hash': {}
+            'f:postgres-operator.crunchydata.com/cluster': {}
+            'f:postgres-operator.crunchydata.com/data': {}
+            'f:postgres-operator.crunchydata.com/instance': {}
+            'f:postgres-operator.crunchydata.com/instance-set': {}
+            'f:postgres-operator.crunchydata.com/patroni': {}
+            'f:statefulset.kubernetes.io/pod-name': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"6be1bffe-ea6f-4e9f-8c1b-1e53262e1510"}': {}
+        'f:spec':
+          'f:topologySpreadConstraints':
+            .: {}
+            'k:{"topologyKey":"kubernetes.io/hostname","whenUnsatisfiable":"ScheduleAnyway"}':
+              .: {}
+              'f:labelSelector': {}
+              'f:maxSkew': {}
+              'f:topologyKey': {}
+              'f:whenUnsatisfiable': {}
+            'k:{"topologyKey":"topology.kubernetes.io/zone","whenUnsatisfiable":"ScheduleAnyway"}':
+              .: {}
+              'f:labelSelector': {}
+              'f:maxSkew': {}
+              'f:topologyKey': {}
+              'f:whenUnsatisfiable': {}
+          'f:volumes':
+            'k:{"name":"database-containerinfo"}':
+              .: {}
+              'f:downwardAPI':
+                .: {}
+                'f:defaultMode': {}
+                'f:items': {}
+              'f:name': {}
+            'k:{"name":"tmp"}':
+              .: {}
+              'f:emptyDir':
+                .: {}
+                'f:sizeLimit': {}
+              'f:name': {}
+            .: {}
+            'k:{"name":"pgbackrest-config"}':
+              .: {}
+              'f:name': {}
+              'f:projected':
+                .: {}
+                'f:defaultMode': {}
+                'f:sources': {}
+            'k:{"name":"postgres-data"}':
+              .: {}
+              'f:name': {}
+              'f:persistentVolumeClaim':
+                .: {}
+                'f:claimName': {}
+            'k:{"name":"pgbackrest-server"}':
+              .: {}
+              'f:name': {}
+              'f:projected':
+                .: {}
+                'f:defaultMode': {}
+                'f:sources': {}
+            'k:{"name":"cert-volume"}':
+              .: {}
+              'f:name': {}
+              'f:projected':
+                .: {}
+                'f:defaultMode': {}
+                'f:sources': {}
+            'k:{"name":"dshm"}':
+              .: {}
+              'f:emptyDir':
+                .: {}
+                'f:medium': {}
+              'f:name': {}
+            'k:{"name":"patroni-config"}':
+              .: {}
+              'f:name': {}
+              'f:projected':
+                .: {}
+                'f:defaultMode': {}
+                'f:sources': {}
+          'f:containers':
+            'k:{"name":"database"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/dev/shm"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/etc/database-containerinfo"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/etc/patroni"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/etc/pgbackrest/conf.d"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/pgconf/tls"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/pgdata"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/tmp"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:livenessProbe':
+                .: {}
+                'f:failureThreshold': {}
+                'f:httpGet':
+                  .: {}
+                  'f:path': {}
+                  'f:port': {}
+                  'f:scheme': {}
+                'f:initialDelaySeconds': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:env':
+                'k:{"name":"PATRONI_POSTGRESQL_LISTEN"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PATRONI_KUBERNETES_PORTS"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PGHOST"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PGDATA"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"LD_PRELOAD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PATRONI_RESTAPI_LISTEN"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PATRONI_KUBERNETES_POD_IP"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:fieldRef': {}
+                'k:{"name":"PATRONI_POSTGRESQL_CONFIG_DIR"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                .: {}
+                'k:{"name":"PATRONI_POSTGRESQL_DATA_DIR"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PATRONI_NAME"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:fieldRef': {}
+                'k:{"name":"PATRONI_RESTAPI_CONNECT_ADDRESS"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"NSS_WRAPPER_GROUP"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"KRB5RCACHEDIR"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"KRB5_CONFIG"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PATRONI_POSTGRESQL_CONNECT_ADDRESS"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PGPORT"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PATRONICTL_CONFIG_FILE"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"NSS_WRAPPER_PASSWD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+              'f:readinessProbe':
+                .: {}
+                'f:failureThreshold': {}
+                'f:httpGet':
+                  .: {}
+                  'f:path': {}
+                  'f:port': {}
+                  'f:scheme': {}
+                'f:initialDelaySeconds': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:securityContext':
+                .: {}
+                'f:allowPrivilegeEscalation': {}
+                'f:capabilities':
+                  .: {}
+                  'f:drop': {}
+                'f:privileged': {}
+                'f:readOnlyRootFilesystem': {}
+                'f:runAsNonRoot': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":5432,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:name': {}
+                  'f:protocol': {}
+              'f:name': {}
+            'k:{"name":"pgbackrest"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/etc/pgbackrest/conf.d"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/etc/pgbackrest/server"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/pgdata"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/tmp"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:livenessProbe':
+                .: {}
+                'f:exec':
+                  .: {}
+                  'f:command': {}
+                'f:failureThreshold': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:env':
+                .: {}
+                'k:{"name":"LD_PRELOAD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"NSS_WRAPPER_GROUP"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"NSS_WRAPPER_PASSWD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+              'f:securityContext':
+                .: {}
+                'f:allowPrivilegeEscalation': {}
+                'f:capabilities':
+                  .: {}
+                  'f:drop': {}
+                'f:privileged': {}
+                'f:readOnlyRootFilesystem': {}
+                'f:runAsNonRoot': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+            'k:{"name":"pgbackrest-config"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/etc/pgbackrest/conf.d"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/etc/pgbackrest/server"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/tmp"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:securityContext':
+                .: {}
+                'f:allowPrivilegeEscalation': {}
+                'f:capabilities':
+                  .: {}
+                  'f:drop': {}
+                'f:privileged': {}
+                'f:readOnlyRootFilesystem': {}
+                'f:runAsNonRoot': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+            'k:{"name":"replication-cert-copy"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/pgconf/tls"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/tmp"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources': {}
+              'f:command': {}
+              'f:securityContext':
+                .: {}
+                'f:allowPrivilegeEscalation': {}
+                'f:capabilities':
+                  .: {}
+                  'f:drop': {}
+                'f:privileged': {}
+                'f:readOnlyRootFilesystem': {}
+                'f:runAsNonRoot': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+          'f:hostname': {}
+          'f:dnsPolicy': {}
+          'f:serviceAccount': {}
+          'f:restartPolicy': {}
+          'f:subdomain': {}
+          'f:schedulerName': {}
+          'f:terminationGracePeriodSeconds': {}
+          'f:initContainers':
+            .: {}
+            'k:{"name":"nss-wrapper-init"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/tmp"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:securityContext':
+                .: {}
+                'f:allowPrivilegeEscalation': {}
+                'f:capabilities':
+                  .: {}
+                  'f:drop': {}
+                'f:privileged': {}
+                'f:readOnlyRootFilesystem': {}
+                'f:runAsNonRoot': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+            'k:{"name":"postgres-startup"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/pgconf/tls"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/pgdata"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/tmp"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:env':
+                .: {}
+                'k:{"name":"KRB5RCACHEDIR"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"KRB5_CONFIG"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PGDATA"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PGHOST"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PGPORT"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+              'f:securityContext':
+                .: {}
+                'f:allowPrivilegeEscalation': {}
+                'f:capabilities':
+                  .: {}
+                  'f:drop': {}
+                'f:privileged': {}
+                'f:readOnlyRootFilesystem': {}
+                'f:runAsNonRoot': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+          'f:shareProcessNamespace': {}
+          'f:serviceAccountName': {}
+          'f:enableServiceLinks': {}
+          'f:securityContext':
+            .: {}
+            'f:fsGroupChangePolicy': {}
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-03T15:01:32Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-03T15:02:34Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:initContainerStatuses': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.130.13.1"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+    - manager: Patroni
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-03T19:37:42Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:status': {}
+          'f:labels':
+            'f:postgres-operator.crunchydata.com/role': {}
+  namespace: gis-data-science-big-data-projects-at-cga-b231ed
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      name: postgres-postgres-rcqx
+      uid: 6be1bffe-ea6f-4e9f-8c1b-1e53262e1510
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    controller-revision-hash: postgres-postgres-rcqx-7d469cb467
+    postgres-operator.crunchydata.com/cluster: postgres
+    postgres-operator.crunchydata.com/data: postgres
+    postgres-operator.crunchydata.com/instance: postgres-postgres-rcqx
+    postgres-operator.crunchydata.com/instance-set: postgres
+    postgres-operator.crunchydata.com/patroni: postgres-ha
+    postgres-operator.crunchydata.com/role: master
+    statefulset.kubernetes.io/pod-name: postgres-postgres-rcqx-0
+spec:
+  restartPolicy: Always
+  initContainers:
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 100Gi
+        requests:
+          cpu: '2'
+          memory: 100Gi
+      terminationMessagePath: /dev/termination-log
+      name: postgres-startup
+      command:
+        - bash
+        - '-ceu'
+        - '--'
+        - >-
+          declare -r expected_major_version="$1" pgwal_directory="$2"
+          pgbrLog_directory="$3"
+
+          permissions() { while [[ -n "$1" ]]; do set "${1%/*}" "$@"; done;
+          shift; stat -Lc '%A %4u %4g %n' "$@"; }
+
+          halt() { local rc=$?; >&2 echo "$@"; exit "${rc/#0/1}"; }
+
+          results() { printf '::postgres-operator: %s::%s\n' "$@"; }
+
+          recreate() (
+            local tmp; tmp=$(mktemp -d -p "${1%/*}"); GLOBIGNORE='.:..'; set -x
+            chmod "$2" "${tmp}"; mv "$1"/* "${tmp}"; rmdir "$1"; mv "${tmp}" "$1"
+          )
+
+          safelink() (
+            local desired="$1" name="$2" current
+            current=$(realpath "${name}")
+            if [ "${current}" = "${desired}" ]; then return; fi
+            set -x; mv --no-target-directory "${current}" "${desired}"
+            ln --no-dereference --force --symbolic "${desired}" "${name}"
+          )
+
+          echo Initializing ...
+
+          results 'uid' "$(id -u)" 'gid' "$(id -G)"
+
+          results 'postgres path' "$(command -v postgres)"
+
+          results 'postgres version' "${postgres_version:=$(postgres
+          --version)}"
+
+          [[ "${postgres_version}" =~ ") ${expected_major_version}"($|[^0-9]) ]]
+          ||
+
+          halt Expected PostgreSQL version "${expected_major_version}"
+
+          results 'config directory' "${PGDATA:?}"
+
+          postgres_data_directory=$([ -d "${PGDATA}" ] && postgres -C
+          data_directory || echo "${PGDATA}")
+
+          results 'data directory' "${postgres_data_directory}"
+
+          [[ "${postgres_data_directory}" == "${PGDATA}" ]] ||
+
+          halt Expected matching config and data directories
+
+          bootstrap_dir="${postgres_data_directory}_bootstrap"
+
+          [ -d "${bootstrap_dir}" ] && results 'bootstrap directory'
+          "${bootstrap_dir}"
+
+          [ -d "${bootstrap_dir}" ] &&
+          postgres_data_directory="${bootstrap_dir}"
+
+          if [[ ! -e "${postgres_data_directory}" || -O
+          "${postgres_data_directory}" ]]; then
+
+          install --directory --mode=0700 "${postgres_data_directory}"
+
+          elif [[ -w "${postgres_data_directory}" && -g
+          "${postgres_data_directory}" ]]; then
+
+          recreate "${postgres_data_directory}" '0700'
+
+          else (halt Permissions!); fi ||
+
+          halt "$(permissions "${postgres_data_directory}" ||:)"
+
+          results 'pgBackRest log directory' "${pgbrLog_directory}"
+
+          install --directory --mode=0775 "${pgbrLog_directory}" ||
+
+          halt "$(permissions "${pgbrLog_directory}" ||:)"
+
+          install -D --mode=0600 -t "/tmp/replication"
+          "/pgconf/tls/replication"/{tls.crt,tls.key,ca.crt}
+
+
+          [ -f "${postgres_data_directory}/PG_VERSION" ] || exit 0
+
+          results 'data version' "${postgres_data_version:=$(<
+          "${postgres_data_directory}/PG_VERSION")}"
+
+          [[ "${postgres_data_version}" == "${expected_major_version}" ]] ||
+
+          halt Expected PostgreSQL data version "${expected_major_version}"
+
+          [[ ! -f "${postgres_data_directory}/postgresql.conf" ]] &&
+
+          touch "${postgres_data_directory}/postgresql.conf"
+
+          safelink "${pgwal_directory}" "${postgres_data_directory}/pg_wal"
+
+          results 'wal directory' "$(realpath
+          "${postgres_data_directory}/pg_wal")"
+
+          rm -f "${postgres_data_directory}/recovery.signal"
+        - startup
+        - '15'
+        - /pgdata/pg15_wal
+        - /pgdata/pgbackrest/log
+      env:
+        - name: PGDATA
+          value: /pgdata/pg15
+        - name: PGHOST
+          value: /tmp/postgres
+        - name: PGPORT
+          value: '5432'
+        - name: KRB5_CONFIG
+          value: /etc/postgres/krb5.conf
+        - name: KRB5RCACHEDIR
+          value: /tmp
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        runAsUser: 1001140000
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: cert-volume
+          readOnly: true
+          mountPath: /pgconf/tls
+        - name: postgres-data
+          mountPath: /pgdata
+        - name: tmp
+          mountPath: /tmp
+        - name: kube-api-access-sn4rj
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.1-3.3-0
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 100Gi
+        requests:
+          cpu: '2'
+          memory: 100Gi
+      terminationMessagePath: /dev/termination-log
+      name: nss-wrapper-init
+      command:
+        - bash
+        - '-c'
+        - >
+          export NSS_WRAPPER_SUBDIR=postgres CRUNCHY_NSS_USERNAME=postgres
+          CRUNCHY_NSS_USER_DESC="postgres" 
+
+          # Define nss_wrapper directory and passwd & group files that will be
+          utilized by nss_wrapper.  The
+
+          # nss_wrapper_env.sh script (which also sets these vars) isn't sourced
+          here since the nss_wrapper
+
+          # has not yet been setup, and we therefore don't yet want the
+          nss_wrapper vars in the environment.
+
+          mkdir -p /tmp/nss_wrapper
+
+          chmod g+rwx /tmp/nss_wrapper
+
+
+          NSS_WRAPPER_DIR="/tmp/nss_wrapper/${NSS_WRAPPER_SUBDIR}"
+
+          NSS_WRAPPER_PASSWD="${NSS_WRAPPER_DIR}/passwd"
+
+          NSS_WRAPPER_GROUP="${NSS_WRAPPER_DIR}/group"
+
+
+          # create the nss_wrapper directory
+
+          mkdir -p "${NSS_WRAPPER_DIR}"
+
+
+          # grab the current user ID and group ID
+
+          USER_ID=$(id -u)
+
+          export USER_ID
+
+          GROUP_ID=$(id -g)
+
+          export GROUP_ID
+
+
+          # get copies of the passwd and group files
+
+          [[ -f "${NSS_WRAPPER_PASSWD}" ]] || cp "/etc/passwd"
+          "${NSS_WRAPPER_PASSWD}"
+
+          [[ -f "${NSS_WRAPPER_GROUP}" ]] || cp "/etc/group"
+          "${NSS_WRAPPER_GROUP}"
+
+
+          # if the username is missing from the passwd file, then add it
+
+          if [[ ! $(cat "${NSS_WRAPPER_PASSWD}") =~
+          ${CRUNCHY_NSS_USERNAME}:x:${USER_ID} ]]; then
+              echo "nss_wrapper: adding user"
+              passwd_tmp="${NSS_WRAPPER_DIR}/passwd_tmp"
+              cp "${NSS_WRAPPER_PASSWD}" "${passwd_tmp}"
+              sed -i "/${CRUNCHY_NSS_USERNAME}:x:/d" "${passwd_tmp}"
+              # needed for OCP 4.x because crio updates /etc/passwd with an entry for USER_ID
+              sed -i "/${USER_ID}:x:/d" "${passwd_tmp}"
+              printf '${CRUNCHY_NSS_USERNAME}:x:${USER_ID}:${GROUP_ID}:${CRUNCHY_NSS_USER_DESC}:${HOME}:/bin/bash\n' >> "${passwd_tmp}"
+              envsubst < "${passwd_tmp}" > "${NSS_WRAPPER_PASSWD}"
+              rm "${passwd_tmp}"
+          else
+              echo "nss_wrapper: user exists"
+          fi
+
+
+          # if the username (which will be the same as the group name) is
+          missing from group file, then add it
+
+          if [[ ! $(cat "${NSS_WRAPPER_GROUP}") =~
+          ${CRUNCHY_NSS_USERNAME}:x:${USER_ID} ]]; then
+              echo "nss_wrapper: adding group"
+              group_tmp="${NSS_WRAPPER_DIR}/group_tmp"
+              cp "${NSS_WRAPPER_GROUP}" "${group_tmp}"
+              sed -i "/${CRUNCHY_NSS_USERNAME}:x:/d" "${group_tmp}"
+              printf '${CRUNCHY_NSS_USERNAME}:x:${USER_ID}:${CRUNCHY_NSS_USERNAME}\n' >> "${group_tmp}"
+              envsubst < "${group_tmp}" > "${NSS_WRAPPER_GROUP}"
+              rm "${group_tmp}"
+          else
+              echo "nss_wrapper: group exists"
+          fi
+
+
+          # export the nss_wrapper env vars
+
+          # define nss_wrapper directory and passwd & group files that will be
+          utilized by nss_wrapper
+
+          NSS_WRAPPER_DIR="/tmp/nss_wrapper/${NSS_WRAPPER_SUBDIR}"
+
+          NSS_WRAPPER_PASSWD="${NSS_WRAPPER_DIR}/passwd"
+
+          NSS_WRAPPER_GROUP="${NSS_WRAPPER_DIR}/group"
+
+
+          export LD_PRELOAD=/usr/lib64/libnss_wrapper.so
+
+          export NSS_WRAPPER_PASSWD="${NSS_WRAPPER_PASSWD}"
+
+          export NSS_WRAPPER_GROUP="${NSS_WRAPPER_GROUP}"
+
+
+          echo "nss_wrapper: environment configured"
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        runAsUser: 1001140000
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+        - name: kube-api-access-sn4rj
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.1-3.3-0
+  serviceAccountName: postgres-instance
+  imagePullSecrets:
+    - name: postgres-instance-dockercfg-hdn6d
+  priority: 0
+  subdomain: postgres-pods
+  schedulerName: default-scheduler
+  enableServiceLinks: false
+  terminationGracePeriodSeconds: 30
+  shareProcessNamespace: true
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: wrk-88
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c34,c9'
+    fsGroup: 1001140000
+    fsGroupChangePolicy: OnRootMismatch
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 100Gi
+        requests:
+          cpu: '2'
+          memory: 100Gi
+      readinessProbe:
+        httpGet:
+          path: /readiness
+          port: 8008
+          scheme: HTTPS
+        initialDelaySeconds: 3
+        timeoutSeconds: 5
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      terminationMessagePath: /dev/termination-log
+      name: database
+      command:
+        - patroni
+        - /etc/patroni
+      livenessProbe:
+        httpGet:
+          path: /liveness
+          port: 8008
+          scheme: HTTPS
+        initialDelaySeconds: 3
+        timeoutSeconds: 5
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      env:
+        - name: PGDATA
+          value: /pgdata/pg15
+        - name: PGHOST
+          value: /tmp/postgres
+        - name: PGPORT
+          value: '5432'
+        - name: KRB5_CONFIG
+          value: /etc/postgres/krb5.conf
+        - name: KRB5RCACHEDIR
+          value: /tmp
+        - name: PATRONI_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: PATRONI_KUBERNETES_POD_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+        - name: PATRONI_KUBERNETES_PORTS
+          value: |
+            - name: postgres
+              port: 5432
+              protocol: TCP
+        - name: PATRONI_POSTGRESQL_CONNECT_ADDRESS
+          value: '$(PATRONI_NAME).postgres-pods:5432'
+        - name: PATRONI_POSTGRESQL_LISTEN
+          value: '*:5432'
+        - name: PATRONI_POSTGRESQL_CONFIG_DIR
+          value: /pgdata/pg15
+        - name: PATRONI_POSTGRESQL_DATA_DIR
+          value: /pgdata/pg15
+        - name: PATRONI_RESTAPI_CONNECT_ADDRESS
+          value: '$(PATRONI_NAME).postgres-pods:8008'
+        - name: PATRONI_RESTAPI_LISTEN
+          value: '*:8008'
+        - name: PATRONICTL_CONFIG_FILE
+          value: /etc/patroni
+        - name: LD_PRELOAD
+          value: /usr/lib64/libnss_wrapper.so
+        - name: NSS_WRAPPER_PASSWD
+          value: /tmp/nss_wrapper/postgres/passwd
+        - name: NSS_WRAPPER_GROUP
+          value: /tmp/nss_wrapper/postgres/group
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        runAsUser: 1001140000
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+      ports:
+        - name: postgres
+          containerPort: 5432
+          protocol: TCP
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: cert-volume
+          readOnly: true
+          mountPath: /pgconf/tls
+        - name: postgres-data
+          mountPath: /pgdata
+        - name: database-containerinfo
+          readOnly: true
+          mountPath: /etc/database-containerinfo
+        - name: pgbackrest-config
+          readOnly: true
+          mountPath: /etc/pgbackrest/conf.d
+        - name: patroni-config
+          readOnly: true
+          mountPath: /etc/patroni
+        - name: tmp
+          mountPath: /tmp
+        - name: dshm
+          mountPath: /dev/shm
+        - name: kube-api-access-sn4rj
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.1-3.3-0
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 1Gi
+        requests:
+          cpu: '1'
+          memory: 512Mi
+      terminationMessagePath: /dev/termination-log
+      name: replication-cert-copy
+      command:
+        - bash
+        - '-ceu'
+        - '--'
+        - |-
+          monitor() {
+          declare -r directory="/pgconf/tls"
+          exec {fd}<> <(:)
+          while read -r -t 5 -u "${fd}" || true; do
+            if [ "${directory}" -nt "/proc/self/fd/${fd}" ] &&
+              install -D --mode=0600 -t "/tmp/replication" "${directory}"/{replication/tls.crt,replication/tls.key,replication/ca.crt} &&
+              pkill -HUP --exact --parent=1 postgres
+            then
+              exec {fd}>&- && exec {fd}<> <(:)
+              stat --format='Loaded certificates dated %y' "${directory}"
+            fi
+          done
+          }; export -f monitor; exec -a "$0" bash -ceu monitor
+        - replication-cert-copy
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        runAsUser: 1001140000
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: cert-volume
+          readOnly: true
+          mountPath: /pgconf/tls
+        - name: tmp
+          mountPath: /tmp
+        - name: kube-api-access-sn4rj
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.1-3.3-0
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 100Gi
+        requests:
+          cpu: '2'
+          memory: 100Gi
+      terminationMessagePath: /dev/termination-log
+      name: pgbackrest
+      command:
+        - pgbackrest
+        - server
+      livenessProbe:
+        exec:
+          command:
+            - pgbackrest
+            - server-ping
+        timeoutSeconds: 1
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      env:
+        - name: LD_PRELOAD
+          value: /usr/lib64/libnss_wrapper.so
+        - name: NSS_WRAPPER_PASSWD
+          value: /tmp/nss_wrapper/postgres/passwd
+        - name: NSS_WRAPPER_GROUP
+          value: /tmp/nss_wrapper/postgres/group
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        runAsUser: 1001140000
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: pgbackrest-server
+          readOnly: true
+          mountPath: /etc/pgbackrest/server
+        - name: postgres-data
+          mountPath: /pgdata
+        - name: pgbackrest-config
+          readOnly: true
+          mountPath: /etc/pgbackrest/conf.d
+        - name: tmp
+          mountPath: /tmp
+        - name: kube-api-access-sn4rj
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 100Gi
+        requests:
+          cpu: '2'
+          memory: 100Gi
+      terminationMessagePath: /dev/termination-log
+      name: pgbackrest-config
+      command:
+        - bash
+        - '-ceu'
+        - '--'
+        - >-
+          monitor() {
+
+          exec {fd}<> <(:)
+
+          until read -r -t 5 -u "${fd}"; do
+            if
+              [ "${filename}" -nt "/proc/self/fd/${fd}" ] &&
+              pkill -HUP --exact --parent=0 pgbackrest
+            then
+              exec {fd}>&- && exec {fd}<> <(:)
+              stat --dereference --format='Loaded configuration dated %y' "${filename}"
+            elif
+              { [ "${directory}" -nt "/proc/self/fd/${fd}" ] ||
+                [ "${authority}" -nt "/proc/self/fd/${fd}" ]
+              } &&
+              pkill -HUP --exact --parent=0 pgbackrest
+            then
+              exec {fd}>&- && exec {fd}<> <(:)
+              stat --format='Loaded certificates dated %y' "${directory}"
+            fi
+          done
+
+          }; export directory="$1" authority="$2" filename="$3"; export -f
+          monitor; exec -a "$0" bash -ceu monitor
+        - pgbackrest-config
+        - /etc/pgbackrest/server
+        - /etc/pgbackrest/conf.d/~postgres-operator/tls-ca.crt
+        - /etc/pgbackrest/conf.d/~postgres-operator_server.conf
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        runAsUser: 1001140000
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: pgbackrest-server
+          readOnly: true
+          mountPath: /etc/pgbackrest/server
+        - name: pgbackrest-config
+          readOnly: true
+          mountPath: /etc/pgbackrest/conf.d
+        - name: tmp
+          mountPath: /tmp
+        - name: kube-api-access-sn4rj
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+  hostname: postgres-postgres-rcqx-0
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          postgres-operator.crunchydata.com/cluster: postgres
+        matchExpressions:
+          - key: postgres-operator.crunchydata.com/data
+            operator: In
+            values:
+              - postgres
+              - pgbackrest
+    - maxSkew: 1
+      topologyKey: topology.kubernetes.io/zone
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          postgres-operator.crunchydata.com/cluster: postgres
+        matchExpressions:
+          - key: postgres-operator.crunchydata.com/data
+            operator: In
+            values:
+              - postgres
+              - pgbackrest
+  serviceAccount: postgres-instance
+  volumes:
+    - name: cert-volume
+      projected:
+        sources:
+          - secret:
+              name: postgres-cluster-cert
+              items:
+                - key: tls.crt
+                  path: tls.crt
+                - key: tls.key
+                  path: tls.key
+                - key: ca.crt
+                  path: ca.crt
+          - secret:
+              name: postgres-replication-cert
+              items:
+                - key: tls.crt
+                  path: replication/tls.crt
+                - key: tls.key
+                  path: replication/tls.key
+                - key: ca.crt
+                  path: replication/ca.crt
+        defaultMode: 384
+    - name: postgres-data
+      persistentVolumeClaim:
+        claimName: postgres-postgres-rcqx-pgdata
+    - name: database-containerinfo
+      downwardAPI:
+        items:
+          - path: cpu_limit
+            resourceFieldRef:
+              containerName: database
+              resource: limits.cpu
+              divisor: 1m
+          - path: cpu_request
+            resourceFieldRef:
+              containerName: database
+              resource: requests.cpu
+              divisor: 1m
+          - path: mem_limit
+            resourceFieldRef:
+              containerName: database
+              resource: limits.memory
+              divisor: 1Mi
+          - path: mem_request
+            resourceFieldRef:
+              containerName: database
+              resource: requests.memory
+              divisor: 1Mi
+          - path: labels
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.labels
+          - path: annotations
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.annotations
+        defaultMode: 420
+    - name: pgbackrest-server
+      projected:
+        sources:
+          - secret:
+              name: postgres-postgres-rcqx-certs
+              items:
+                - key: pgbackrest-server.crt
+                  path: server-tls.crt
+                - key: pgbackrest-server.key
+                  path: server-tls.key
+                  mode: 384
+        defaultMode: 420
+    - name: pgbackrest-config
+      projected:
+        sources:
+          - configMap:
+              name: postgres-pgbackrest-config
+              items:
+                - key: pgbackrest_instance.conf
+                  path: pgbackrest_instance.conf
+                - key: config-hash
+                  path: config-hash
+                - key: pgbackrest-server.conf
+                  path: ~postgres-operator_server.conf
+          - secret:
+              name: postgres-pgbackrest
+              items:
+                - key: pgbackrest.ca-roots
+                  path: ~postgres-operator/tls-ca.crt
+                - key: pgbackrest-client.crt
+                  path: ~postgres-operator/client-tls.crt
+                - key: pgbackrest-client.key
+                  path: ~postgres-operator/client-tls.key
+                  mode: 384
+              optional: true
+        defaultMode: 420
+    - name: patroni-config
+      projected:
+        sources:
+          - configMap:
+              name: postgres-config
+              items:
+                - key: patroni.yaml
+                  path: ~postgres-operator_cluster.yaml
+          - configMap:
+              name: postgres-postgres-rcqx-config
+              items:
+                - key: patroni.yaml
+                  path: ~postgres-operator_instance.yaml
+          - secret:
+              name: postgres-postgres-rcqx-certs
+              items:
+                - key: patroni.ca-roots
+                  path: ~postgres-operator/patroni.ca-roots
+                - key: patroni.crt-combined
+                  path: ~postgres-operator/patroni.crt+key
+        defaultMode: 420
+    - name: tmp
+      emptyDir:
+        sizeLimit: 16Mi
+    - name: dshm
+      emptyDir:
+        medium: Memory
+    - name: kube-api-access-sn4rj
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+status:
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: database
+      state:
+        running:
+          startedAt: '2023-11-03T15:02:29Z'
+      imageID: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis@sha256:d75da4e44f92136511c02dd9631b9153caf97d263b6f66d84de02dfbbe368f52
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.1-3.3-0
+      lastState: {}
+      containerID: 'cri-o://d1024a0dc2ed8eb89484c4f27a47b549afe320f0ff9fd2379c36408f8672023c'
+    - restartCount: 0
+      started: true
+      ready: true
+      name: pgbackrest
+      state:
+        running:
+          startedAt: '2023-11-03T15:02:32Z'
+      imageID: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest@sha256:bbdb8aa32259a2a09e516da11591f8b7e596d1a6a4007db5589db1e140e5e788
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+      lastState: {}
+      containerID: 'cri-o://cb488f580893425b8d658b2dad99bd83799aaaf7fd87327f7bacf87735e8e68c'
+    - restartCount: 0
+      started: true
+      ready: true
+      name: pgbackrest-config
+      state:
+        running:
+          startedAt: '2023-11-03T15:02:33Z'
+      imageID: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest@sha256:bbdb8aa32259a2a09e516da11591f8b7e596d1a6a4007db5589db1e140e5e788
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+      lastState: {}
+      containerID: 'cri-o://18eee1984504156ff24c901cebad094e3875a39e989b8b7b8e64c4de119ae28d'
+    - restartCount: 0
+      started: true
+      ready: true
+      name: replication-cert-copy
+      state:
+        running:
+          startedAt: '2023-11-03T15:02:29Z'
+      imageID: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis@sha256:d75da4e44f92136511c02dd9631b9153caf97d263b6f66d84de02dfbbe368f52
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.1-3.3-0
+      lastState: {}
+      containerID: 'cri-o://6b849d31b9072926b3559b4d0305f054890edec83b189d86c705305dc9b4e681'
+  qosClass: Burstable
+  podIPs:
+    - ip: 10.130.13.1
+  podIP: 10.130.13.1
+  hostIP: 10.30.6.98
+  startTime: '2023-11-03T15:01:14Z'
+  initContainerStatuses:
+    - name: postgres-startup
+      state:
+        terminated:
+          exitCode: 0
+          reason: Completed
+          startedAt: '2023-11-03T15:02:24Z'
+          finishedAt: '2023-11-03T15:02:24Z'
+          containerID: >-
+            cri-o://538708026c7e3af197f014c2ab57ec6f30a013329631d6423b58b12d98b001fa
+      lastState: {}
+      ready: true
+      restartCount: 0
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.1-3.3-0
+      imageID: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis@sha256:d75da4e44f92136511c02dd9631b9153caf97d263b6f66d84de02dfbbe368f52
+      containerID: 'cri-o://538708026c7e3af197f014c2ab57ec6f30a013329631d6423b58b12d98b001fa'
+    - name: nss-wrapper-init
+      state:
+        terminated:
+          exitCode: 0
+          reason: Completed
+          startedAt: '2023-11-03T15:02:24Z'
+          finishedAt: '2023-11-03T15:02:24Z'
+          containerID: >-
+            cri-o://b5e252250c39e790cc55f837c4392064c27dbe1a05546468f09dc25bc134d518
+      lastState: {}
+      ready: true
+      restartCount: 0
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.1-3.3-0
+      imageID: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis@sha256:d75da4e44f92136511c02dd9631b9153caf97d263b6f66d84de02dfbbe368f52
+      containerID: 'cri-o://b5e252250c39e790cc55f837c4392064c27dbe1a05546468f09dc25bc134d518'
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-11-03T15:02:25Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-11-03T15:02:34Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-11-03T15:02:34Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-11-03T15:01:14Z'
+  phase: Running

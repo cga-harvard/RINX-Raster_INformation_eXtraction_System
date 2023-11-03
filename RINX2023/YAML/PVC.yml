@@ -1,0 +1,119 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  annotations:
+    pv.kubernetes.io/bind-completed: 'yes'
+    pv.kubernetes.io/bound-by-controller: 'yes'
+    volume.beta.kubernetes.io/storage-provisioner: openshift-storage.rbd.csi.ceph.com
+    volume.kubernetes.io/storage-provisioner: openshift-storage.rbd.csi.ceph.com
+  resourceVersion: '870395479'
+  name: postgres-postgres-rcqx-pgdata
+  uid: b0ad479f-5a64-4447-b346-7b53288663aa
+  creationTimestamp: '2023-10-24T17:44:30Z'
+  managedFields:
+    - manager: postgrescluster-controller
+      operation: Apply
+      apiVersion: v1
+      time: '2023-10-24T17:44:30Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:postgres-operator.crunchydata.com/cluster': {}
+            'f:postgres-operator.crunchydata.com/data': {}
+            'f:postgres-operator.crunchydata.com/instance': {}
+            'f:postgres-operator.crunchydata.com/instance-set': {}
+            'f:postgres-operator.crunchydata.com/role': {}
+          'f:ownerReferences':
+            'k:{"uid":"20cf7555-cde0-4e31-98e4-5619f92d3c84"}': {}
+        'f:spec':
+          'f:accessModes': {}
+          'f:resources':
+            'f:limits':
+              'f:cpu': {}
+              'f:memory': {}
+            'f:requests':
+              'f:cpu': {}
+              'f:memory': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-10-24T17:44:31Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:pv.kubernetes.io/bind-completed': {}
+            'f:pv.kubernetes.io/bound-by-controller': {}
+            'f:volume.beta.kubernetes.io/storage-provisioner': {}
+            'f:volume.kubernetes.io/storage-provisioner': {}
+        'f:spec':
+          'f:volumeName': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-10-24T17:44:31Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:accessModes': {}
+          'f:capacity': {}
+          'f:phase': {}
+      subresource: status
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-03T14:45:29Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:resources':
+            'f:requests':
+              'f:storage': {}
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-03T14:45:43Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:capacity':
+            'f:storage': {}
+      subresource: status
+  namespace: gis-data-science-big-data-projects-at-cga-b231ed
+  ownerReferences:
+    - apiVersion: postgres-operator.crunchydata.com/v1beta1
+      kind: PostgresCluster
+      name: postgres
+      uid: 20cf7555-cde0-4e31-98e4-5619f92d3c84
+      controller: true
+      blockOwnerDeletion: true
+  finalizers:
+    - kubernetes.io/pvc-protection
+  labels:
+    postgres-operator.crunchydata.com/cluster: postgres
+    postgres-operator.crunchydata.com/data: postgres
+    postgres-operator.crunchydata.com/instance: postgres-postgres-rcqx
+    postgres-operator.crunchydata.com/instance-set: postgres
+    postgres-operator.crunchydata.com/role: pgdata
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    limits:
+      cpu: '2'
+      memory: 200Gi
+    requests:
+      cpu: '2'
+      memory: 200Gi
+      storage: 11000Gi
+  volumeName: pvc-b0ad479f-5a64-4447-b346-7b53288663aa
+  storageClassName: ocs-external-storagecluster-ceph-rbd
+  volumeMode: Filesystem
+status:
+  phase: Bound
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 11000Gi

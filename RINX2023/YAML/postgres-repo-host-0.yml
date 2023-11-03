@@ -1,0 +1,817 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  generateName: postgres-repo-host-
+  annotations:
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.131.10.147"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    openshift.io/scc: restricted-v2
+    seccomp.security.alpha.kubernetes.io/pod: runtime/default
+  resourceVersion: '867290668'
+  name: postgres-repo-host-0
+  uid: fcccc095-7749-4769-b242-e7e1aa2e27a2
+  creationTimestamp: '2023-11-02T16:11:43Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-02T16:11:43Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:controller-revision-hash': {}
+            'f:postgres-operator.crunchydata.com/cluster': {}
+            'f:postgres-operator.crunchydata.com/data': {}
+            'f:postgres-operator.crunchydata.com/pgbackrest': {}
+            'f:postgres-operator.crunchydata.com/pgbackrest-dedicated': {}
+            'f:statefulset.kubernetes.io/pod-name': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"ff51246c-6f93-4045-9836-ae8f825af657"}': {}
+        'f:spec':
+          'f:topologySpreadConstraints':
+            .: {}
+            'k:{"topologyKey":"kubernetes.io/hostname","whenUnsatisfiable":"ScheduleAnyway"}':
+              .: {}
+              'f:labelSelector': {}
+              'f:maxSkew': {}
+              'f:topologyKey': {}
+              'f:whenUnsatisfiable': {}
+            'k:{"topologyKey":"topology.kubernetes.io/zone","whenUnsatisfiable":"ScheduleAnyway"}':
+              .: {}
+              'f:labelSelector': {}
+              'f:maxSkew': {}
+              'f:topologyKey': {}
+              'f:whenUnsatisfiable': {}
+          'f:volumes':
+            .: {}
+            'k:{"name":"pgbackrest-config"}':
+              .: {}
+              'f:name': {}
+              'f:projected':
+                .: {}
+                'f:defaultMode': {}
+                'f:sources': {}
+            'k:{"name":"pgbackrest-server"}':
+              .: {}
+              'f:name': {}
+              'f:projected':
+                .: {}
+                'f:defaultMode': {}
+                'f:sources': {}
+            'k:{"name":"repo1"}':
+              .: {}
+              'f:name': {}
+              'f:persistentVolumeClaim':
+                .: {}
+                'f:claimName': {}
+            'k:{"name":"tmp"}':
+              .: {}
+              'f:emptyDir':
+                .: {}
+                'f:sizeLimit': {}
+              'f:name': {}
+          'f:containers':
+            'k:{"name":"pgbackrest"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/etc/pgbackrest/conf.d"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/etc/pgbackrest/server"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/pgbackrest/repo1"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/tmp"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:livenessProbe':
+                .: {}
+                'f:exec':
+                  .: {}
+                  'f:command': {}
+                'f:failureThreshold': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:env':
+                .: {}
+                'k:{"name":"LD_PRELOAD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"NSS_WRAPPER_GROUP"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"NSS_WRAPPER_PASSWD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+              'f:securityContext':
+                .: {}
+                'f:allowPrivilegeEscalation': {}
+                'f:capabilities':
+                  .: {}
+                  'f:drop': {}
+                'f:privileged': {}
+                'f:readOnlyRootFilesystem': {}
+                'f:runAsNonRoot': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+            'k:{"name":"pgbackrest-config"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/etc/pgbackrest/conf.d"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/etc/pgbackrest/server"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/tmp"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:securityContext':
+                .: {}
+                'f:allowPrivilegeEscalation': {}
+                'f:capabilities':
+                  .: {}
+                  'f:drop': {}
+                'f:privileged': {}
+                'f:readOnlyRootFilesystem': {}
+                'f:runAsNonRoot': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+          'f:hostname': {}
+          'f:dnsPolicy': {}
+          'f:automountServiceAccountToken': {}
+          'f:restartPolicy': {}
+          'f:subdomain': {}
+          'f:schedulerName': {}
+          'f:terminationGracePeriodSeconds': {}
+          'f:initContainers':
+            .: {}
+            'k:{"name":"nss-wrapper-init"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/tmp"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:securityContext':
+                .: {}
+                'f:allowPrivilegeEscalation': {}
+                'f:capabilities':
+                  .: {}
+                  'f:drop': {}
+                'f:privileged': {}
+                'f:readOnlyRootFilesystem': {}
+                'f:runAsNonRoot': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+            'k:{"name":"pgbackrest-log-dir"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/pgbackrest/repo1"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/tmp"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:securityContext':
+                .: {}
+                'f:allowPrivilegeEscalation': {}
+                'f:capabilities':
+                  .: {}
+                  'f:drop': {}
+                'f:privileged': {}
+                'f:readOnlyRootFilesystem': {}
+                'f:runAsNonRoot': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+          'f:shareProcessNamespace': {}
+          'f:enableServiceLinks': {}
+          'f:securityContext':
+            .: {}
+            'f:fsGroupChangePolicy': {}
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-02T16:11:55Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-02T16:11:57Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:initContainerStatuses': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.131.10.147"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+  namespace: gis-data-science-big-data-projects-at-cga-b231ed
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      name: postgres-repo-host
+      uid: ff51246c-6f93-4045-9836-ae8f825af657
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    controller-revision-hash: postgres-repo-host-86d4c78d5f
+    postgres-operator.crunchydata.com/cluster: postgres
+    postgres-operator.crunchydata.com/data: pgbackrest
+    postgres-operator.crunchydata.com/pgbackrest: ''
+    postgres-operator.crunchydata.com/pgbackrest-dedicated: ''
+    statefulset.kubernetes.io/pod-name: postgres-repo-host-0
+spec:
+  restartPolicy: Always
+  initContainers:
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 100Gi
+        requests:
+          cpu: '2'
+          memory: 100Gi
+      terminationMessagePath: /dev/termination-log
+      name: pgbackrest-log-dir
+      command:
+        - bash
+        - '-c'
+        - mkdir -p /pgbackrest/repo1/log
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        runAsUser: 1001140000
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: repo1
+          mountPath: /pgbackrest/repo1
+        - name: tmp
+          mountPath: /tmp
+      terminationMessagePolicy: File
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 100Gi
+        requests:
+          cpu: '2'
+          memory: 100Gi
+      terminationMessagePath: /dev/termination-log
+      name: nss-wrapper-init
+      command:
+        - bash
+        - '-c'
+        - >
+          export NSS_WRAPPER_SUBDIR=postgres CRUNCHY_NSS_USERNAME=postgres
+          CRUNCHY_NSS_USER_DESC="postgres" 
+
+          # Define nss_wrapper directory and passwd & group files that will be
+          utilized by nss_wrapper.  The
+
+          # nss_wrapper_env.sh script (which also sets these vars) isn't sourced
+          here since the nss_wrapper
+
+          # has not yet been setup, and we therefore don't yet want the
+          nss_wrapper vars in the environment.
+
+          mkdir -p /tmp/nss_wrapper
+
+          chmod g+rwx /tmp/nss_wrapper
+
+
+          NSS_WRAPPER_DIR="/tmp/nss_wrapper/${NSS_WRAPPER_SUBDIR}"
+
+          NSS_WRAPPER_PASSWD="${NSS_WRAPPER_DIR}/passwd"
+
+          NSS_WRAPPER_GROUP="${NSS_WRAPPER_DIR}/group"
+
+
+          # create the nss_wrapper directory
+
+          mkdir -p "${NSS_WRAPPER_DIR}"
+
+
+          # grab the current user ID and group ID
+
+          USER_ID=$(id -u)
+
+          export USER_ID
+
+          GROUP_ID=$(id -g)
+
+          export GROUP_ID
+
+
+          # get copies of the passwd and group files
+
+          [[ -f "${NSS_WRAPPER_PASSWD}" ]] || cp "/etc/passwd"
+          "${NSS_WRAPPER_PASSWD}"
+
+          [[ -f "${NSS_WRAPPER_GROUP}" ]] || cp "/etc/group"
+          "${NSS_WRAPPER_GROUP}"
+
+
+          # if the username is missing from the passwd file, then add it
+
+          if [[ ! $(cat "${NSS_WRAPPER_PASSWD}") =~
+          ${CRUNCHY_NSS_USERNAME}:x:${USER_ID} ]]; then
+              echo "nss_wrapper: adding user"
+              passwd_tmp="${NSS_WRAPPER_DIR}/passwd_tmp"
+              cp "${NSS_WRAPPER_PASSWD}" "${passwd_tmp}"
+              sed -i "/${CRUNCHY_NSS_USERNAME}:x:/d" "${passwd_tmp}"
+              # needed for OCP 4.x because crio updates /etc/passwd with an entry for USER_ID
+              sed -i "/${USER_ID}:x:/d" "${passwd_tmp}"
+              printf '${CRUNCHY_NSS_USERNAME}:x:${USER_ID}:${GROUP_ID}:${CRUNCHY_NSS_USER_DESC}:${HOME}:/bin/bash\n' >> "${passwd_tmp}"
+              envsubst < "${passwd_tmp}" > "${NSS_WRAPPER_PASSWD}"
+              rm "${passwd_tmp}"
+          else
+              echo "nss_wrapper: user exists"
+          fi
+
+
+          # if the username (which will be the same as the group name) is
+          missing from group file, then add it
+
+          if [[ ! $(cat "${NSS_WRAPPER_GROUP}") =~
+          ${CRUNCHY_NSS_USERNAME}:x:${USER_ID} ]]; then
+              echo "nss_wrapper: adding group"
+              group_tmp="${NSS_WRAPPER_DIR}/group_tmp"
+              cp "${NSS_WRAPPER_GROUP}" "${group_tmp}"
+              sed -i "/${CRUNCHY_NSS_USERNAME}:x:/d" "${group_tmp}"
+              printf '${CRUNCHY_NSS_USERNAME}:x:${USER_ID}:${CRUNCHY_NSS_USERNAME}\n' >> "${group_tmp}"
+              envsubst < "${group_tmp}" > "${NSS_WRAPPER_GROUP}"
+              rm "${group_tmp}"
+          else
+              echo "nss_wrapper: group exists"
+          fi
+
+
+          # export the nss_wrapper env vars
+
+          # define nss_wrapper directory and passwd & group files that will be
+          utilized by nss_wrapper
+
+          NSS_WRAPPER_DIR="/tmp/nss_wrapper/${NSS_WRAPPER_SUBDIR}"
+
+          NSS_WRAPPER_PASSWD="${NSS_WRAPPER_DIR}/passwd"
+
+          NSS_WRAPPER_GROUP="${NSS_WRAPPER_DIR}/group"
+
+
+          export LD_PRELOAD=/usr/lib64/libnss_wrapper.so
+
+          export NSS_WRAPPER_PASSWD="${NSS_WRAPPER_PASSWD}"
+
+          export NSS_WRAPPER_GROUP="${NSS_WRAPPER_GROUP}"
+
+
+          echo "nss_wrapper: environment configured"
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        runAsUser: 1001140000
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+      terminationMessagePolicy: File
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: default-dockercfg-p6pzq
+  priority: 0
+  subdomain: postgres-pods
+  schedulerName: default-scheduler
+  enableServiceLinks: false
+  terminationGracePeriodSeconds: 30
+  shareProcessNamespace: true
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: wrk-89
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c34,c9'
+    fsGroup: 1001140000
+    fsGroupChangePolicy: OnRootMismatch
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 100Gi
+        requests:
+          cpu: '2'
+          memory: 100Gi
+      terminationMessagePath: /dev/termination-log
+      name: pgbackrest
+      command:
+        - pgbackrest
+        - server
+      livenessProbe:
+        exec:
+          command:
+            - pgbackrest
+            - server-ping
+        timeoutSeconds: 1
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      env:
+        - name: LD_PRELOAD
+          value: /usr/lib64/libnss_wrapper.so
+        - name: NSS_WRAPPER_PASSWD
+          value: /tmp/nss_wrapper/postgres/passwd
+        - name: NSS_WRAPPER_GROUP
+          value: /tmp/nss_wrapper/postgres/group
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        runAsUser: 1001140000
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: pgbackrest-server
+          readOnly: true
+          mountPath: /etc/pgbackrest/server
+        - name: repo1
+          mountPath: /pgbackrest/repo1
+        - name: pgbackrest-config
+          readOnly: true
+          mountPath: /etc/pgbackrest/conf.d
+        - name: tmp
+          mountPath: /tmp
+      terminationMessagePolicy: File
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+    - resources:
+        limits:
+          cpu: '2'
+          memory: 100Gi
+        requests:
+          cpu: '2'
+          memory: 100Gi
+      terminationMessagePath: /dev/termination-log
+      name: pgbackrest-config
+      command:
+        - bash
+        - '-ceu'
+        - '--'
+        - >-
+          monitor() {
+
+          exec {fd}<> <(:)
+
+          until read -r -t 5 -u "${fd}"; do
+            if
+              [ "${filename}" -nt "/proc/self/fd/${fd}" ] &&
+              pkill -HUP --exact --parent=0 pgbackrest
+            then
+              exec {fd}>&- && exec {fd}<> <(:)
+              stat --dereference --format='Loaded configuration dated %y' "${filename}"
+            elif
+              { [ "${directory}" -nt "/proc/self/fd/${fd}" ] ||
+                [ "${authority}" -nt "/proc/self/fd/${fd}" ]
+              } &&
+              pkill -HUP --exact --parent=0 pgbackrest
+            then
+              exec {fd}>&- && exec {fd}<> <(:)
+              stat --format='Loaded certificates dated %y' "${directory}"
+            fi
+          done
+
+          }; export directory="$1" authority="$2" filename="$3"; export -f
+          monitor; exec -a "$0" bash -ceu monitor
+        - pgbackrest-config
+        - /etc/pgbackrest/server
+        - /etc/pgbackrest/conf.d/~postgres-operator/tls-ca.crt
+        - /etc/pgbackrest/conf.d/~postgres-operator_server.conf
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        runAsUser: 1001140000
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: pgbackrest-server
+          readOnly: true
+          mountPath: /etc/pgbackrest/server
+        - name: pgbackrest-config
+          readOnly: true
+          mountPath: /etc/pgbackrest/conf.d
+        - name: tmp
+          mountPath: /tmp
+      terminationMessagePolicy: File
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+  hostname: postgres-repo-host-0
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          postgres-operator.crunchydata.com/cluster: postgres
+        matchExpressions:
+          - key: postgres-operator.crunchydata.com/data
+            operator: In
+            values:
+              - postgres
+              - pgbackrest
+    - maxSkew: 1
+      topologyKey: topology.kubernetes.io/zone
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          postgres-operator.crunchydata.com/cluster: postgres
+        matchExpressions:
+          - key: postgres-operator.crunchydata.com/data
+            operator: In
+            values:
+              - postgres
+              - pgbackrest
+  automountServiceAccountToken: false
+  serviceAccount: default
+  volumes:
+    - name: pgbackrest-server
+      projected:
+        sources:
+          - secret:
+              name: postgres-pgbackrest
+              items:
+                - key: pgbackrest-repo-host.crt
+                  path: server-tls.crt
+                - key: pgbackrest-repo-host.key
+                  path: server-tls.key
+                  mode: 384
+        defaultMode: 420
+    - name: repo1
+      persistentVolumeClaim:
+        claimName: postgres-repo1
+    - name: pgbackrest-config
+      projected:
+        sources:
+          - configMap:
+              name: postgres-pgbackrest-config
+              items:
+                - key: pgbackrest_repo.conf
+                  path: pgbackrest_repo.conf
+                - key: config-hash
+                  path: config-hash
+                - key: pgbackrest-server.conf
+                  path: ~postgres-operator_server.conf
+          - secret:
+              name: postgres-pgbackrest
+              items:
+                - key: pgbackrest.ca-roots
+                  path: ~postgres-operator/tls-ca.crt
+                - key: pgbackrest-client.crt
+                  path: ~postgres-operator/client-tls.crt
+                - key: pgbackrest-client.key
+                  path: ~postgres-operator/client-tls.key
+                  mode: 384
+        defaultMode: 420
+    - name: tmp
+      emptyDir:
+        sizeLimit: 16Mi
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+status:
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: pgbackrest
+      state:
+        running:
+          startedAt: '2023-11-02T16:11:57Z'
+      imageID: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest@sha256:bbdb8aa32259a2a09e516da11591f8b7e596d1a6a4007db5589db1e140e5e788
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+      lastState: {}
+      containerID: 'cri-o://d2746fd7c2cf0a2721cd0e5f536b3139edb640c70151304fc2de16538b0075a1'
+    - restartCount: 0
+      started: true
+      ready: true
+      name: pgbackrest-config
+      state:
+        running:
+          startedAt: '2023-11-02T16:11:57Z'
+      imageID: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest@sha256:bbdb8aa32259a2a09e516da11591f8b7e596d1a6a4007db5589db1e140e5e788
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+      lastState: {}
+      containerID: 'cri-o://4445a86f33c622708769e9633ea627fdf93338ccd045b358b0efc18b8121ae39'
+  qosClass: Guaranteed
+  podIPs:
+    - ip: 10.131.10.147
+  podIP: 10.131.10.147
+  hostIP: 10.30.6.99
+  startTime: '2023-11-02T16:11:43Z'
+  initContainerStatuses:
+    - name: pgbackrest-log-dir
+      state:
+        terminated:
+          exitCode: 0
+          reason: Completed
+          startedAt: '2023-11-02T16:11:55Z'
+          finishedAt: '2023-11-02T16:11:55Z'
+          containerID: >-
+            cri-o://566ef7f5d0b39c58df8c486b493c10381e51788fd6fb6881faa83dffb3e3210a
+      lastState: {}
+      ready: true
+      restartCount: 0
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+      imageID: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest@sha256:bbdb8aa32259a2a09e516da11591f8b7e596d1a6a4007db5589db1e140e5e788
+      containerID: 'cri-o://566ef7f5d0b39c58df8c486b493c10381e51788fd6fb6881faa83dffb3e3210a'
+    - name: nss-wrapper-init
+      state:
+        terminated:
+          exitCode: 0
+          reason: Completed
+          startedAt: '2023-11-02T16:11:56Z'
+          finishedAt: '2023-11-02T16:11:56Z'
+          containerID: >-
+            cri-o://25acb52fbc25b4bc32496bdb1b2e82e9b4ac3cfc196b251dbcd7f6dfe0d291a9
+      lastState: {}
+      ready: true
+      restartCount: 0
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+      imageID: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest@sha256:bbdb8aa32259a2a09e516da11591f8b7e596d1a6a4007db5589db1e140e5e788
+      containerID: 'cri-o://25acb52fbc25b4bc32496bdb1b2e82e9b4ac3cfc196b251dbcd7f6dfe0d291a9'
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-11-02T16:11:56Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-11-02T16:11:57Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-11-02T16:11:57Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-11-02T16:11:43Z'
+  phase: Running

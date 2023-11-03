@@ -1,0 +1,375 @@
+apiVersion: postgres-operator.crunchydata.com/v1beta1
+kind: PostgresCluster
+metadata:
+  creationTimestamp: '2023-10-24T17:44:30Z'
+  finalizers:
+    - postgres-operator.crunchydata.com/finalizer
+  generation: 124
+  managedFields:
+    - apiVersion: postgres-operator.crunchydata.com/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:finalizers':
+            .: {}
+            'v:"postgres-operator.crunchydata.com/finalizer"': {}
+      manager: postgrescluster-controller
+      operation: Update
+      time: '2023-10-24T17:44:30Z'
+    - apiVersion: postgres-operator.crunchydata.com/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:openshift': {}
+          'f:patroni':
+            .: {}
+            'f:dynamicConfiguration':
+              .: {}
+              'f:postgresql':
+                .: {}
+                'f:pg_hba': {}
+            'f:leaderLeaseDurationSeconds': {}
+            'f:port': {}
+            'f:syncPeriodSeconds': {}
+          'f:image': {}
+          'f:instances':
+            .: {}
+            'k:{"name":"postgres"}':
+              .: {}
+              'f:dataVolumeClaimSpec':
+                .: {}
+                'f:accessModes': {}
+                'f:resources':
+                  .: {}
+                  'f:limits':
+                    .: {}
+                    'f:cpu': {}
+                    'f:memory': {}
+                  'f:requests':
+                    .: {}
+                    'f:cpu': {}
+                    'f:memory': {}
+                    'f:storage': {}
+              'f:name': {}
+              'f:replicas': {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+          'f:postgresVersion': {}
+          .: {}
+          'f:users':
+            .: {}
+            'k:{"name":"postgres"}':
+              .: {}
+              'f:databases':
+                .: {}
+                'v:"rinx"': {}
+              'f:name': {}
+              'f:options': {}
+          'f:port': {}
+          'f:postGISVersion': {}
+          'f:backups':
+            .: {}
+            'f:pgbackrest':
+              .: {}
+              'f:image': {}
+              'f:jobs':
+                .: {}
+                'f:resources':
+                  .: {}
+                  'f:limits':
+                    .: {}
+                    'f:cpu': {}
+                    'f:memory': {}
+                  'f:requests':
+                    .: {}
+                    'f:cpu': {}
+                    'f:memory': {}
+              'f:repoHost':
+                .: {}
+                'f:resources':
+                  .: {}
+                  'f:limits':
+                    .: {}
+                    'f:cpu': {}
+                    'f:memory': {}
+                  'f:requests':
+                    .: {}
+                    'f:cpu': {}
+                    'f:memory': {}
+              'f:repos':
+                .: {}
+                'k:{"name":"repo1"}':
+                  .: {}
+                  'f:name': {}
+                  'f:volume':
+                    .: {}
+                    'f:volumeClaimSpec':
+                      .: {}
+                      'f:accessModes': {}
+                      'f:resources':
+                        .: {}
+                        'f:limits':
+                          .: {}
+                          'f:cpu': {}
+                          'f:memory': {}
+                        'f:requests':
+                          .: {}
+                          'f:cpu': {}
+                          'f:memory': {}
+                          'f:storage': {}
+              'f:sidecars':
+                .: {}
+                'f:pgbackrest':
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                'f:pgbackrestConfig':
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+      manager: Mozilla
+      operation: Update
+      time: '2023-11-03T15:01:20Z'
+    - apiVersion: postgres-operator.crunchydata.com/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:pgbackrest':
+            .: {}
+            'f:repoHost':
+              .: {}
+              'f:apiVersion': {}
+              'f:kind': {}
+              'f:ready': {}
+          'f:patroni':
+            .: {}
+            'f:systemIdentifier': {}
+          'f:instances':
+            .: {}
+            'k:{"name":"postgres"}':
+              .: {}
+              'f:name': {}
+              'f:readyReplicas': {}
+              'f:replicas': {}
+              'f:updatedReplicas': {}
+          'f:databaseRevision': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"PGBackRestReplicaCreate"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:observedGeneration': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"PGBackRestReplicaRepoReady"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:observedGeneration': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"PGBackRestRepoHostReady"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:observedGeneration': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"PersistentVolumeResizing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:observedGeneration': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          .: {}
+          'f:usersRevision': {}
+          'f:observedGeneration': {}
+          'f:proxy':
+            .: {}
+            'f:pgBouncer':
+              .: {}
+              'f:postgresRevision': {}
+          'f:monitoring':
+            .: {}
+            'f:exporterConfiguration': {}
+      manager: postgrescluster-controller
+      operation: Update
+      subresource: status
+      time: '2023-11-03T19:33:57Z'
+  name: postgres
+  namespace: gis-data-science-big-data-projects-at-cga-b231ed
+  resourceVersion: '871055718'
+  uid: 20cf7555-cde0-4e31-98e4-5619f92d3c84
+spec:
+  port: 5432
+  postGISVersion: 3.3.0
+  users:
+    - databases:
+        - rinx
+      name: postgres
+      options: SUPERUSER
+  backups:
+    pgbackrest:
+      image: >-
+        registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+      jobs:
+        resources:
+          limits:
+            cpu: '2'
+            memory: 100Gi
+          requests:
+            cpu: '2'
+            memory: 100Gi
+      repoHost:
+        resources:
+          limits:
+            cpu: '2'
+            memory: 100Gi
+          requests:
+            cpu: '2'
+            memory: 100Gi
+      repos:
+        - name: repo1
+          volume:
+            volumeClaimSpec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                limits:
+                  cpu: '2'
+                  memory: 100Gi
+                requests:
+                  cpu: '2'
+                  memory: 100Gi
+                  storage: 100Gi
+      sidecars:
+        pgbackrest:
+          resources:
+            limits:
+              cpu: '2'
+              memory: 100Gi
+            requests:
+              cpu: '2'
+              memory: 100Gi
+        pgbackrestConfig:
+          resources:
+            limits:
+              cpu: '2'
+              memory: 100Gi
+            requests:
+              cpu: '2'
+              memory: 100Gi
+  openshift: true
+  image: >-
+    registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.1-3.3-0
+  patroni:
+    dynamicConfiguration:
+      postgresql:
+        pg_hba:
+          - host rinx postgres all md5
+          - local rinx postgres trust
+          - host postgres postgres all trust
+          - local opendatapolicing opendatapolicing trust
+          - local postgres postgres trust
+          - local rerc rerc trust
+    leaderLeaseDurationSeconds: 30
+    port: 8008
+    syncPeriodSeconds: 10
+  instances:
+    - dataVolumeClaimSpec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          limits:
+            cpu: '2'
+            memory: 100Gi
+          requests:
+            cpu: '2'
+            memory: 100Gi
+            storage: 100Gi
+      name: postgres
+      replicas: 1
+      resources:
+        limits:
+          cpu: '2'
+          memory: 100Gi
+        requests:
+          cpu: '2'
+          memory: 100Gi
+  postgresVersion: 15
+status:
+  observedGeneration: 124
+  usersRevision: ccf6b495f
+  monitoring:
+    exporterConfiguration: 559c4c97d6
+  proxy:
+    pgBouncer:
+      postgresRevision: 5c9966f6bc
+  pgbackrest:
+    repoHost:
+      apiVersion: apps/v1
+      kind: StatefulSet
+      ready: true
+  databaseRevision: 6b55986697
+  conditions:
+    - lastTransitionTime: '2023-11-02T16:11:58Z'
+      message: pgBackRest dedicated repository host is ready
+      observedGeneration: 124
+      reason: RepoHostReady
+      status: 'True'
+      type: PGBackRestRepoHostReady
+    - lastTransitionTime: '2023-10-24T19:46:30Z'
+      message: Status is missing for the replica creation repo
+      observedGeneration: 124
+      reason: RepoStatusMissing
+      status: Unknown
+      type: PGBackRestReplicaRepoReady
+    - lastTransitionTime: '2023-10-24T19:46:30Z'
+      message: Status is missing for the replica create repo
+      observedGeneration: 124
+      reason: RepoStatusMissing
+      status: Unknown
+      type: PGBackRestReplicaCreate
+    - lastTransitionTime: '2023-11-03T19:33:57Z'
+      message: One or more volumes cannot be resized
+      observedGeneration: 124
+      reason: Invalid
+      status: 'False'
+      type: PersistentVolumeResizing
+  patroni:
+    systemIdentifier: '7293582399092875359'
+  instances:
+    - name: postgres
+      readyReplicas: 1
+      replicas: 1
+      updatedReplicas: 1
