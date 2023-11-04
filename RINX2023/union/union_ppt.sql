@@ -52,4 +52,4 @@ UNION ALL
 Select * from ppt2023
 );
 Alter table pptunion add column filedate date;
-Update pptunion set filedate=TO_DATE(substring(filename,19,8),'YYYYMMDD');
+Update pptunion set filedate=TO_DATE(substring(filename,18,8),'YYYYMMDD');
