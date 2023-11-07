@@ -52,4 +52,4 @@ UNION ALL
 Select * from tmean2023
 );
 Alter table tmeanunion add column filedate date;
-Update tmeanunion set filedate=TO_DATE(substring(filename,19,8),'YYYYMMDD');
+Update tmeanunion set filedate=TO_DATE(substring(filename,20,8),'YYYYMMDD');
