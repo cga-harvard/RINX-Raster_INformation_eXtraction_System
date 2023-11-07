@@ -1,6 +1,21 @@
+
+#####################################################################
+#                                                                   #
+# This is a collection of functions for merging and concatenating   #
+# results from address and RINX                                     #
+#                                                                   #
+# Author: Mukul Rawat                                               #
+# Reviewed by: Devika Kakkar                                        #
+#                                                                   #
+# *This was compiled on 10/07/2023 in Python 3.11.4*                #
+#                                                                   #
+#####################################################################
+
+
+
+
 import os
 import pandas as pd
-
 
 def combine_csv_files(path, save_result_to_csv=False, output_path='combined_result.csv'):
     """
