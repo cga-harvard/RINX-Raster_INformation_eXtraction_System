@@ -38,13 +38,22 @@ def combine_csv_files(path, save_result_to_csv=False, output_path='combined_resu
         for file in os.listdir(path):
             if file.endswith('.csv'):
                 data_path = os.path.join(path, file)
+                
                 data = pd.read_csv(data_path, delimiter='\t', header=None)
+    
 
                 # Extract the variable_name from the file name
-                variable_name = os.path.splitext(file)[0].split("_")[1]
+                if file == 'results_rh_ah.csv':
+                    variable_name1= os.path.splitext(file)[0].split("_")[1]
+                    variable_name2 = os.path.splitext(file)[0].split("_")[2]
+                    data.columns = ['grid_id', 'Start_date', variable_name1,variable_name2]
+                
+                else:
 
-                # Rename columns
-                data.columns = ['grid_id', 'Start_date', variable_name]
+                    variable_name = os.path.splitext(file)[0].split("_")[1]
+
+                    # Rename columns
+                    data.columns = ['grid_id', 'Start_date', variable_name]
 
                 # Merge data based on 'Start_date' and 'grid_id'
                 if combined_data.empty:
