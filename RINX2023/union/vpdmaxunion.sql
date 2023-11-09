@@ -52,4 +52,4 @@ UNION ALL
 Select * from vpdmax2023
 );
 Alter table vpdmaxunion add column filedate date;
-Update vpdmaxunion set filedate=TO_DATE(substring(filename,19,8),'YYYYMMDD');
+Update vpdmaxunion set filedate=TO_DATE(substring(filename,21,8),'YYYYMMDD');
