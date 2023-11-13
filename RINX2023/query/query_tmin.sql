@@ -5,4 +5,4 @@ inner join tminunion b
 ON
 ST_Intersects(ST_Envelope(b.rast), ST_Transform(ST_SetSRID( ST_Point(a.longitude, a.latitude), 4326), 4269)) = 't'
 AND startdate <= filedate AND enddate >= filedate);
-Copy(Select * from results_tmin) TO '/pgdata/results/results_tmin.csv';
+Copy(Select * from results_tmin) TO 'pgdata/rinx/results/results_tmin.csv';
