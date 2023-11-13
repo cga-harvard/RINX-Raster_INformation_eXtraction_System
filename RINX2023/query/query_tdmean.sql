@@ -1,5 +1,5 @@
 Create table results_tdmean as (SELECT  a.id as id, regexp_replace(CAST(b.filedate AS TEXT),'-','','g') AS day,
-ST_VALUE(b.rast, ST_Transform(ST_SetSRID( ST_Point(a.longitude, a.latitude), 4326), 4269)) as tdmean
+ROUND(ST_VALUE(b.rast, ST_Transform(ST_SetSRID(ST_Point(a.longitude, a.latitude), 4326), 4269))::NUMERIC, 5) AS tdmean
 from addresses a
 inner join tdmeanunion b
 ON
