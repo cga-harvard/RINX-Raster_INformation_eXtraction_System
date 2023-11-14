@@ -10,4 +10,4 @@ Alter table addresses drop column end_date;
 ALTER TABLE addresses ADD COLUMN geom geometry (Point, 4326);
 UPDATE addresses SET geom = ST_SetSRID (ST_MakePoint(longitude, latitude), 4326);
 create index addresses_id ON addresses USING GIST (geom);
-Cluster addresses using addresses_idx;
+Cluster addresses using addresses_id;
