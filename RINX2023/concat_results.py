@@ -46,22 +46,22 @@ def combine_csv_files(path, save_result_to_csv=False, output_path='combined_resu
                 if file == 'results_rh_ah.csv':
                     variable_name1= os.path.splitext(file)[0].split("_")[1]
                     variable_name2 = os.path.splitext(file)[0].split("_")[2]
-                    data.columns = ['grid_id', 'Start_date', variable_name1,variable_name2]
+                    data.columns = ['grid_id', 'day', variable_name1,variable_name2]
                 
                 else:
 
                     variable_name = os.path.splitext(file)[0].split("_")[1]
 
                     # Rename columns
-                    data.columns = ['grid_id', 'Start_date', variable_name]
+                    data.columns = ['grid_id', 'day', variable_name]
 
                 # Merge data based on 'Start_date' and 'grid_id'
                 if combined_data.empty:
                     combined_data = data
                 else:
-                    combined_data = pd.merge(combined_data, data, on=['Start_date', 'grid_id'], how='outer')
+                    combined_data = pd.merge(combined_data, data, on=['day', 'grid_id'])
 
-        combined_data['Start_date'] = pd.to_datetime(combined_data['Start_date'], format='%Y%m%d')
+        # combined_data['Start_date'] = pd.to_datetime(combined_data['Start_date'], format='%Y%m%d')
         if save_result_to_csv:
             combined_data.to_csv(output_path, index=False)
 
@@ -72,7 +72,7 @@ def combine_csv_files(path, save_result_to_csv=False, output_path='combined_resu
 
 
 
-def merge_with_climate_data(combined_data, climate_data_path, save_result_to_csv=True, output_path='combined_climate_result.csv'):
+def merge_with_climate_data(combined_data, climate_data_path, save_result_to_csv=True, output_path='combined_climate_result1.csv'):
     """
     Merge climate data with combined data by grid_id and Start_date.
 
@@ -97,6 +97,8 @@ def merge_with_climate_data(combined_data, climate_data_path, save_result_to_csv
         raise Exception(f"Error reading climate data: {e}")
 
     try:
+        combined_data.rename(columns={'day': 'Start_date'}, inplace=True)
+        combined_data['Start_date'] = pd.to_datetime(combined_data['Start_date'], format='%Y%m%d')
         result = pd.merge(climate_data, combined_data, on=['grid_id', 'Start_date'])
     except KeyError:
         raise Exception("Columns 'grid_id' and 'Start_date' not found in combined_data")
@@ -112,6 +114,6 @@ def merge_with_climate_data(combined_data, climate_data_path, save_result_to_csv
 
 if __name__ == "__main__":
     path = './results'
-    climate_data_path = './climate_input_01.csv'
-    combined_data  = combine_csv_files(path)
+    climate_data_path = './climate_input_02.csv'
+    combined_data  = combine_csv_files(path, save_result_to_csv=True, output_path='./merg.csv')
     climate_data_merge = merge_with_climate_data(combined_data, climate_data_path)
