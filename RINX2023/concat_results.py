@@ -99,7 +99,7 @@ def merge_with_climate_data(combined_data, climate_data_path, save_result_to_csv
     try:
         combined_data.rename(columns={'day': 'Start_date'}, inplace=True)
         combined_data['Start_date'] = pd.to_datetime(combined_data['Start_date'], format='%Y%m%d')
-        result = pd.merge(climate_data, combined_data, on=['grid_id', 'Start_date'])
+        result = combined_data.merge(climate_data, on="grid_id", how="left")
     except KeyError:
         raise Exception("Columns 'grid_id' and 'Start_date' not found in combined_data")
 
