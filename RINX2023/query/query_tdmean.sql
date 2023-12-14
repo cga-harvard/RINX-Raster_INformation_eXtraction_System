@@ -1,6 +1,6 @@
 
 Create table results_tdmean as (SELECT  a.id as id, regexp_replace(CAST(b.filedate AS TEXT),'-','','g') AS day,
-ROUND(ST_VALUE(b.rast, ST_Transform(a.geom, 4269))::NUMERIC, 5) AS tdmean
+ROUND(ST_VALUE(b.rast, ST_Transform(a.geom, 4269))::NUMERIC, 4) AS tdmean
 from addresses a
 inner join tdmeanunion b
 ON
