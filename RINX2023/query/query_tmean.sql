@@ -1,5 +1,5 @@
 Create table results_tmean as (SELECT  a.id as id, regexp_replace(CAST(b.filedate AS TEXT),'-','','g') AS day,
-ROUND(ST_VALUE(b.rast, ST_Transform(a.geom, 4269))::NUMERIC, 5) AS tmean
+ROUND(ST_VALUE(b.rast, ST_Transform(a.geom, 4269))::NUMERIC, 4) AS tmean
 from addresses a
 inner join tmeanunion b
 ON
