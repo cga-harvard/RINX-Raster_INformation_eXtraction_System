@@ -1,5 +1,5 @@
 Create table results_ppt as (SELECT  a.id as id, regexp_replace(CAST(b.filedate AS TEXT),'-','','g') AS day,
-ROUND(ST_VALUE(b.rast, ST_Transform(a.geom, 4269))::NUMERIC, 5) AS ppt
+ROUND(ST_VALUE(b.rast, ST_Transform(a.geom, 4269))::NUMERIC, 4) AS ppt
 from addresses a
 inner join pptunion b
 ON
