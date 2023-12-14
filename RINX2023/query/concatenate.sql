@@ -1,0 +1,2 @@
+Select a.id, a.day,a.tmin,b.tmax,c.tdmean, d.tmean, e.vpdmin,f.vpdmax, g.ppt, h.rh, h.ah from results_tmin a LEFT OUTER JOIN results_tmax b ON a.id=b.id and a.day=b.day
+LEFT outer join results_tdmean c on a.id=c.id and a.day=c.day LEFT outer join results_tmean d on a.id=d.id and a.day=d.day LEFT outer join results_vpdmin e on a.id=e.id and a.day=e.day LEFT outer join results_vpdmax f on a.id=f.id and a.day=f.day LEFT outer join results_ppt g on a.id=g.id and a.day=g.day LEFT outer join temp h on a.id=h.id and a.day=h.day;
